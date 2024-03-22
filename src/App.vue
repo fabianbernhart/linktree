@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
     <header>Beta Version</header>
     <main>
@@ -33,7 +31,6 @@ export default {
     display: block;
     margin: 0 auto 0.5rem;
     border-radius: 20;
-    border-color: red;
     border-radius: 100px;
     background: #73ad21;
 }
