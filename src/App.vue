@@ -1,63 +1,88 @@
+
+
 <template>
-    <header>Beta Version</header>
-    <main>
-        <section id="profile-section">
-            <figure>
-                <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-            </figure>
-            <figcaption class="caption-title">Fabian</figcaption>
-            <figcaption class="caption-subtitle">Software Developer 🧑‍💻</figcaption>
-        </section>
-        <section id="list-actions">
-            <list-component :items="listItems" />
-        </section>
-        <section id="application-icons"></section>
-    </main>
+  <header>
+    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+
+    <div class="wrapper">
+      <HelloWorld msg="You did it!" />
+
+      <nav>
+        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/about">About</RouterLink>
+      </nav>
+    </div>
+  </header>
+
+  <RouterView />
 </template>
 
-<script lang="ts">
-import ListComponent from './components/list/ListComponent.vue'
-export default {
-    components: { ListComponent },
-    name: 'App',
-    data: () => ({
-        listItems: ['LinkedIn', 'XING', 'THIS IS JUST A BETA'] as string[]
-    })
-}
+<script setup lang="ts">
+import { RouterLink, RouterView } from 'vue-router'
+import HelloWorld from './components/HelloWorld.vue'
 </script>
 
+
 <style scoped>
+header {
+  line-height: 1.5;
+  max-height: 100vh;
+}
+
 .logo {
-    display: block;
-    margin: 0 auto 0.5rem;
-    border-radius: 20;
-    border-radius: 100px;
-    background: #73ad21;
+  display: block;
+  margin: 0 auto 2rem;
 }
 
-section {
-    margin-top: 0.5rem;
+nav {
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 2rem;
 }
 
-figcaption {
-    display: block;
-    text-align: center;
+nav a.router-link-exact-active {
+  color: var(--color-text);
 }
 
-.caption-title {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #fff;
+nav a.router-link-exact-active:hover {
+  background-color: transparent;
 }
 
-.caption-subtitle {
+nav a {
+  display: inline-block;
+  padding: 0 1rem;
+  border-left: 1px solid var(--color-border);
+}
+
+nav a:first-of-type {
+  border: 0;
+}
+
+@media (min-width: 1024px) {
+  header {
+    display: flex;
+    place-items: center;
+    padding-right: calc(var(--section-gap) / 2);
+  }
+
+  .logo {
+    margin: 0 2rem 0 0;
+  }
+
+  header .wrapper {
+    display: flex;
+    place-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  nav {
+    text-align: left;
+    margin-left: -1rem;
     font-size: 1rem;
-    color: #fff;
-    font-weight: bolder;
-}
 
-.app-header {
-    position: sticky;
-    font-size: 1rem;
+    padding: 1rem 0;
+    margin-top: 1rem;
+  }
 }
 </style>
