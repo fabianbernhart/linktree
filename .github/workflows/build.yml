@@ -16,10 +16,3 @@ jobs:
         run: |
           npm i
           npm run build
-
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: pages
-          folder: dist
-          token: ${{ secrets.ACCESS_TOKEN }}

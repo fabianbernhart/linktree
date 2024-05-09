@@ -1,12 +1,36 @@
 import './assets/main.css'
 
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+//mdi icons
+import '@mdi/font/css/materialdesignicons.min.css';
 
-import App from './App.vue'
+import { createApp } from 'vue';
+import { createPinia } from 'pinia';
 
-const app = createApp(App)
+import App from './App.vue';
 
-app.use(createPinia())
+const app = createApp(App);
 
-app.mount('#app')
+app.use(createPinia());
+
+// components
+import iconVue from "@/components/icon/vue-icon.vue"
+import listVue from "@/components/list/vue-list.vue"
+
+app.component("fb-icon", iconVue);
+app.component("fb-list", listVue)
+
+export type {
+    
+}
+
+
+
+
+app.mount('#app');
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+vscode:
+  extensions:
+    - vuejs.vue-vscode-extensionpack
+
+tasks:
+  - name: Install dependencies
+    init: npm install
+
+  - name: Run development server
+    command: npm run dev
+    openMode: split-right
+
+ports:
+  - port: 5173
+    onOpen: open-preview
