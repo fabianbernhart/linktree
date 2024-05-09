@@ -1,27 +1,55 @@
 <template>
-    <header>Beta Version</header>
+    <header>Beta Version (Focus on Mobile)</header>
     <main>
         <section id="profile-section">
             <figure>
-                <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+                <img alt="Vue logo" class="logo" :src="profilePictureUrl" width="125" height="125" />
             </figure>
             <figcaption class="caption-title">Fabian</figcaption>
             <figcaption class="caption-subtitle">Software Developer 🧑‍💻</figcaption>
         </section>
         <section id="list-actions">
-            <list-component :items="listItems" />
+            <fb-list :items="listItems" />
         </section>
-        <section id="application-icons"></section>
     </main>
 </template>
 
 <script lang="ts">
-import ListComponent from './components/list/ListComponent.vue'
+
+import {type ListItem} from "@/components/list/vue-list.vue";
+
+
 export default {
-    components: { ListComponent },
     name: 'App',
     data: () => ({
-        listItems: ['LinkedIn', 'XING', 'THIS IS JUST A BETA'] as string[]
+        listItems: [
+            {
+                name: "Portfolio (under Construction)",
+                link: "https://www.github.com/fabianbernhart",
+                prependIcon: "mdi-web",
+            },
+            {
+                name: "LinkedIn",
+                link: "https://www.linkedin.com/in/fabianbernhart/",
+                prependIcon: "mdi-linkedin"
+            },
+            {
+                name: "Github",
+                link: "https://www.github.com/profile/fabianbernhart",
+                prependIcon: "mdi-github"
+            },
+            {
+                name: "Xing",
+                link: "https://www.xing.com/profile/Fabian_Bernhart",
+                prependIcon: "mdi-account",
+            },
+            {
+                name: "Gitlab (inactive)",
+                link: "https://www.github.com/profile/fabianbernhart",
+                prependIcon: "mdi-gitlab",
+            },
+        ] as ListItem[],
+        profilePictureUrl: "https://profile-images.xing.com/images/3d533a455b8a5533cb8e76a60f906061-1/fabian-bernhart.1024x1024.jpg",
     })
 }
 </script>
